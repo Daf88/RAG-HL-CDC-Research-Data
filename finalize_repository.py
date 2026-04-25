@@ -177,11 +177,11 @@ def main():
     # Final Report
     print(f"\n{COLORS['BOLD']}--- FINAL REPORT ---{COLORS['RESET']}")
     if all(checks):
-        print(f"{COLORS['GREEN']}✅ REPOSITORY IS READY FOR SUBMISSION!{COLORS['RESET']}")
+        print(f"{COLORS['GREEN']} REPOSITORY IS READY FOR SUBMISSION!{COLORS['RESET']}")
         print("All checks passed. Structure, data integrity, and validation scripts are working.")
         sys.exit(0)
     else:
-        print(f"{COLORS['RED']}❌ REPOSITORY NEEDS ATTENTION.{COLORS['RESET']}")
+        print(f"{COLORS['RED']} REPOSITORY NEEDS ATTENTION.{COLORS['RESET']}")
         print("Please fix the errors listed above before archiving or submitting.")
         sys.exit(1)
 
