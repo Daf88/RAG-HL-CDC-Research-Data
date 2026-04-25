@@ -1,0 +1,182 @@
+[
+  {
+    "intervention_id": "HC_DM_001",
+    "domain": "healthcare_diabetes",
+    "timestamp": "2025-06-12T14:20:00Z",
+    "raw_data": {
+      "patient_age": 82,
+      "diagnosis": "Type 2 diabetes",
+      "comorbidities": ["heart_failure", "polypharmacy"],
+      "assigned_hba1c_target": 6.5
+    },
+    "rag_component": {
+      "query": "What HbA1c target is recommended for a T2D patient >75 years with heart failure and frailty?",
+      "retrieved_sources": [
+        {
+          "source_id": "HAS_DT2_2024_Annex3",
+          "document": "Therapeutic Strategy for Patients Living with Type 2 Diabetes",
+          "section": "Annex 3 (p. 42)",
+          "excerpt": "Patients classified as 'fragile' → HbA1c target ≤ 8% | Patients classified as 'ill' → ≤ 9%",
+          "relevance_score": 0.96
+        }
+      ],
+      "generated_recommendation": "Adjust the HbA1c target to ≤ 8%. A 6.5% target exposes frail elderly patients to a high iatrogenic risk of severe hypoglycemia."
+    },
+    "hitl_intervention": {
+      "intervention_type": "preemptive_review",
+      "expert_role": "endocrinologist",
+      "decision": "modify",
+      "final_action": "update_target_to_8.0",
+      "justification": "Patient classified as 'fragile'. Target relaxed to ensure cardiovascular safety and prevent falls.",
+      "confidence_level": "high"
+    },
+    "learning_outcomes": {
+      "rule_generated": true,
+      "rule_text": "IF age > 75 AND (frailty == high OR heart_failure == true) THEN hba1c_target <= 8.0",
+      "prompt_refinement": "Added explicit geriatric risk stratification keywords to query template",
+      "knowledge_base_updated": true
+    },
+    "audit_trail": {
+      "decision_hash": "a1b2c3d4e5f6",
+      "traceable": true,
+      "regulatory_alignment": "HAS_DT2_2024_Annex3",
+      "gdpr_compliant": true
+    }
+  },
+  {
+    "intervention_id": "FIN_OSMP_002",
+    "domain": "finance_fraud_prevention",
+    "timestamp": "2025-07-22T16:45:00Z",
+    "raw_data": {
+      "transaction_amount": 8500.00,
+      "beneficiary_status": "new",
+      "channel": "online_banking",
+      "external_solicitation_detected": true,
+      "solicitation_type": "spoofed_call"
+    },
+    "rag_component": {
+      "query": "What procedure should be applied for a transfer initiated after a suspicious phone call?",
+      "retrieved_sources": [
+        {
+          "source_id": "OSMP_2024_Sec1.6",
+          "document": "Observatoire de la sécurité des moyens de paiement – Annual Report 2024",
+          "section": "Section 1.6 (p. 22)",
+          "excerpt": "Manipulation fraud covers cases where the client is manipulated by the fraudster during a phone conversation, often by impersonating the payment service provider.",
+          "relevance_score": 0.96
+        }
+      ],
+      "generated_recommendation": "Temporarily block the transfer. Contact the client via an independent channel for explicit confirmation."
+    },
+    "hitl_intervention": {
+      "intervention_type": "preemptive_review",
+      "expert_role": "fraud_analyst",
+      "decision": "accept",
+      "final_action": "block_transaction_independent_callback",
+      "justification": "Compliant with OSMP 2024 Section 1.6 and R.12: independent channel validation required.",
+      "confidence_level": "high"
+    },
+    "learning_outcomes": {
+      "rule_generated": true,
+      "rule_text": "IF external_solicitation_detected AND amount > P95 AND beneficiary_status == new THEN block_transaction",
+      "prompt_refinement": "Added explicit reference to 'independent channel' in query template",
+      "knowledge_base_updated": true
+    },
+    "audit_trail": {
+      "decision_hash": "f9e8d7c6b5a4",
+      "traceable": true,
+      "regulatory_alignment": "OSMP_2024_Sec1.6_R12",
+      "gdpr_compliant": true
+    }
+  },
+  {
+    "intervention_id": "REC_CNIL_003",
+    "domain": "recruitment_hr",
+    "timestamp": "2026-04-15T10:30:00Z",
+    "raw_data": {
+      "candidate_id": "CAND_HR_8842",
+      "role_applied": "machine_learning_engineer",
+      "technical_score": 92,
+      "automated_score": 45,
+      "portfolio_verified": true,
+      "anomaly_type": "potential_demographic_bias"
+    },
+    "rag_component": {
+      "query": "What are the best practices to prevent gender bias in technology recruitment?",
+      "retrieved_sources": [
+        {
+          "source_id": "CODE_TRAVAIL_2026_L1142-1",
+          "document": "French Labor Code (Updated 2026-04-11)",
+          "section": "Article L. 1142-1",
+          "excerpt": "No employer may refuse to hire a person [...] on the grounds of sex, family status, or pregnancy.",
+          "relevance_score": 0.95
+        }
+      ],
+      "generated_recommendation": "Mandatory human review: gender bias risk detected. Compliance required with Article L. 1142-1."
+    },
+    "hitl_intervention": {
+      "intervention_type": "preemptive_review",
+      "expert_role": "hr_recruiter",
+      "decision": "modify",
+      "final_action": "override_score_to_technical",
+      "justification": "Technical competencies confirmed via GitHub. No objective justification for rejection based on name or gender.",
+      "confidence_level": "high"
+    },
+    "learning_outcomes": {
+      "rule_generated": true,
+      "rule_text": "IF automated_score < threshold AND demographic_indicator_detected THEN trigger_human_review",
+      "prompt_refinement": "Added explicit instruction to ignore demographic indicators and focus on skills",
+      "knowledge_base_updated": true
+    },
+    "audit_trail": {
+      "decision_hash": "b8c4f1e2a9d7",
+      "traceable": true,
+      "regulatory_alignment": "Code_du_travail_2026_L1142-1",
+      "gdpr_compliant": true
+    }
+  },
+  {
+    "intervention_id": "EDU_MENFP_004",
+    "domain": "education_public_service",
+    "timestamp": "2025-08-15T09:30:00Z",
+    "raw_data": {
+      "batch_id": "ADV_2024_BATCH_042",
+      "total_records": 50,
+      "missing_justification_count": 50,
+      "process_stage": "central_review",
+      "anomaly_type": "missing_score_without_justification"
+    },
+    "rag_component": {
+      "query": "What can be done when a promotion candidate is not ranked by the academy without justification?",
+      "retrieved_sources": [
+        {
+          "source_id": "MENFP_CIRC_087X25_Art4.4",
+          "document": "MENFP Circular N° 087X25 – Advancement au Choix 2024",
+          "section": "Article 4.4",
+          "excerpt": "Any list presented by academies should contain a written justification of each unranked candidate or files will be returned.",
+          "relevance_score": 0.98
+        }
+      ],
+      "generated_recommendation": "Do not discard dossiers. Extract unranked candidates and return to academy with request for written justification."
+    },
+    "hitl_intervention": {
+      "intervention_type": "preemptive_review",
+      "expert_role": "central_hr_officer",
+      "decision": "accept",
+      "final_action": "return_to_academy_for_clarification",
+      "justification": "Compliant with Article 4.4. This procedure ensures procedural equity and prevents unfair exclusion.",
+      "confidence_level": "high"
+    },
+    "learning_outcomes": {
+      "rule_generated": true,
+      "rule_text": "IF score_field IS EMPTY AND justification_field IS NULL THEN block_transmission",
+      "prompt_refinement": "Added explicit instruction to cite Article 4.4 and require formal written justification",
+      "knowledge_base_updated": true
+    },
+    "audit_trail": {
+      "decision_hash": "f7a9c2e1d8b4",
+      "traceable": true,
+      "regulatory_alignment": "MENFP_CIRC_087X25",
+      "gdpr_compliant": true
+    }
+  }
+]

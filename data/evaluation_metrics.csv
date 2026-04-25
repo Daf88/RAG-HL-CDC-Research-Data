@@ -1,0 +1,27 @@
+metric,baseline_score,rag_hl_cdc_score,improvement_pct,domain,description
+traceability_score,0.31,0.96,209.7,all,Proportion of corrections with verifiable external source citation & full audit trail
+bias_reduction,0.0,0.74,∞,recruitment,Decrease in demographic disparity between automated and human-validated scores
+error_propagation_reduction,0.18,0.04,77.8,healthcare,Fraction of downstream model errors traced to preprocessing anomalies
+human_intervention_rate,1.0,0.28,72.0,all,Percentage of cases requiring HITL after rule automation (measured at month 3)
+prompt_accuracy,0.54,0.91,68.5,all,Correct recommendation rate across prompt versions (v1 → v3)
+audit_compliance,0.42,0.98,133.3,all,Meets regulatory audit requirements (GDPR, HAS, OSMP, MENFP alignment)
+fairness_improvement,0.12,0.89,641.7,education,Procedural equity score for unranked/unjustified administrative records
+stakeholder_trust_index,0.45,0.87,93.3,finance,Expert confidence rating in system recommendations (5-point Likert scale aggregated)
+rule_automation_latency_days,0,14,-100.0,all,Average time from first HITL validation to full rule automation
+knowledge_base_coverage,0.22,0.81,268.2,all,Percentage of domain-specific queries successfully grounded in external sources
+anomaly_detection_precision,0.67,0.94,40.3,all,Precision of contextual anomaly detection module (true positives / predicted positives)
+anomaly_detection_recall,0.58,0.91,56.9,all,Recall of contextual anomaly detection module (true positives / actual positives)
+f1_score_anomaly_detection,0.62,0.92,48.4,all,Harmonic mean of precision and recall for anomaly detection
+time_to_resolution_minutes,45.2,12.8,71.7,all,Average time from anomaly detection to final decision (human + system)
+false_positive_rate,0.23,0.06,73.9,all,Proportion of legitimate transactions/records incorrectly flagged as anomalous
+rule_reusability_rate,0.0,0.85,∞,all,Percentage of generated rules successfully applied to new similar cases
+expert_workload_reduction,1.0,0.31,69.0,all,Reduction in manual review time per case after rule automation
+regulatory_alignment_score,0.38,0.97,155.3,all,Degree of alignment between system recommendations and cited regulatory sources
+contextual_coherence_score,0.41,0.93,126.8,healthcare,Ability to detect inter-field inconsistencies (e.g., HbA1c target vs. patient frailty)
+fraud_prevention_effectiveness,0.52,0.89,71.2,finance,Proportion of social engineering attempts correctly blocked pre-execution
+procedural_equity_score,0.29,0.91,213.8,education,Consistency in handling unranked candidates across regional academies
+anti_bias_intervention_success,0.0,0.88,∞,recruitment,Success rate of human overrides correcting algorithmic demographic bias
+knowledge_retention_rate,0.0,0.94,∞,all,Percentage of learned rules persisting across prompt/model updates
+system_explainability_rating,0.48,0.92,91.7,all,Expert-rated clarity of system justifications (5-point Likert scale)
+scalability_readiness,0.35,0.86,145.7,all,Estimated capacity to handle 10x volume increase without performance degradation
+cross_domain_transferability,0.21,0.79,276.2,all,Success rate of rules/prompts adapted from one domain to another

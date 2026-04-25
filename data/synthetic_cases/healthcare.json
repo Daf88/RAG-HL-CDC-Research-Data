@@ -1,0 +1,44 @@
+{
+  "intervention_id": "DM_HBA1C_042",
+  "domain": "healthcare_diabetes",
+  "timestamp": "2025-06-12T14:20:00Z",
+  "raw_data": {
+    "patient_age": 82,
+    "diagnosis": "Type 2 diabetes",
+    "comorbidities": ["heart_failure", "polypharmacy"],
+    "assigned_hba1c_target": 6.5
+  },
+  "rag_component": {
+    "query": "What HbA1c target is recommended for a T2D patient >75 years with heart failure and frailty?",
+    "retrieved_sources": [
+      {
+        "source_id": "HAS_DT2_2024_Annex3",
+        "document": "Therapeutic Strategy for Patients Living with Type 2 Diabetes",
+        "section": "Annex 3. Reminder of glycemic target objectives according to patient profile (p. 42)",
+        "excerpt": "Patients classified as 'fragile' → HbA1c target ≤ 8% | Patients classified as 'ill' → ≤ 9%",
+        "relevance_score": 0.96
+      }
+    ],
+    "generated_recommendation": "Adjust the HbA1c target to ≤ 8%. A 6.5% target exposes frail elderly patients to a high iatrogenic risk of severe hypoglycemia (HAS 2024, R.98, R.103)."
+  },
+  "hitl_intervention": {
+    "intervention_type": "preemptive_review",
+    "expert_role": "endocrinologist",
+    "decision": "modify",
+    "final_action": "update_target_to_8.0",
+    "justification": "Patient classified as 'frail'. Target relaxed to ensure cardiovascular safety and prevent falls.",
+    "confidence_level": "high"
+  },
+  "learning_outcomes": {
+    "rule_generated": true,
+    "rule_text": "IF age > 75 AND (frailty == high OR heart_failure == true) THEN hba1c_target <= 8.0",
+    "prompt_refinement": "Added explicit geriatric risk stratification keywords to query template",
+    "knowledge_base_updated": true
+  },
+  "audit_trail": {
+    "decision_hash": "a1b2c3d4e5f6",
+    "traceable": true,
+    "regulatory_alignment": "HAS_DT2_2024_Annex3",
+    "gdpr_compliant": true
+  }
+}

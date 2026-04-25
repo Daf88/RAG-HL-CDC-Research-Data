@@ -1,0 +1,48 @@
+{
+  "intervention_id": "EDU_MENFP_087",
+  "domain": "education_public_service",
+  "timestamp": "2025-08-15T09:30:00Z",
+  "raw_data": {
+    "batch_id": "ADV_2024_BATCH_042",
+    "total_dossiers": 50,
+    "anomaly_type": "missing_final_score_without_justification",
+    "system_alert": "Critical anomaly: lack of scoring without clear explanation.",
+    "affected_candidates_sample": [
+      {"candidate_id": "TCH_MAR_11204", "region": "Souss-Massa", "years_of_service": 14},
+      {"candidate_id": "TCH_MAR_11209", "region": "Tanger-Tetouan-Al Hoceima", "years_of_service": 11}
+    ]
+  },
+  "rag_component": {
+    "query": "What can be done when one of the promotion candidates cannot be ranked by the academy? What are the recovery procedures?",
+    "retrieved_sources": [
+      {
+        "source_id": "MENFP_CIRC_087X25_Art4.4",
+        "document": "MENFP Circular N° 087X25 – Advancement au Choix 2024",
+        "section": "Article 4.4",
+        "excerpt": "Any list presented by academies should contain a written justification of each unranked candidate or the files will be returned by the HR Directorate to the respective academies to clarify or complete.",
+        "relevance_score": 0.98
+      }
+    ],
+    "generated_recommendation": "Do not discard partially completed dossiers. Extract names of unranked candidates and forward them to the originating academy with an official request for written justification or retroactive scoring."
+  },
+  "hitl_intervention": {
+    "intervention_type": "preemptive_review",
+    "expert_role": "central_hr_officer",
+    "decision": "accept",
+    "final_action": "return_to_academy_for_clarification",
+    "justification": "Compliant with Circular N° 087X25, Article 4.4. This procedure ensures procedural equity and prevents unfair exclusion of candidates due to administrative oversight.",
+    "confidence_level": "high"
+  },
+  "learning_outcomes": {
+    "rule_generated": true,
+    "rule_text": "IF score_field IS EMPTY AND justification_field IS NULL THEN block_central_transmission AND trigger_return_to_originating_academy",
+    "prompt_refinement": "Added explicit instruction to cite Article 4.4 of MENFP Circular 087X25 and require formal written justification in the output template.",
+    "knowledge_base_updated": true
+  },
+  "audit_trail": {
+    "decision_hash": "f7a9c2e1d8b4",
+    "traceable": true,
+    "regulatory_alignment": "MENFP_CIRC_087X25",
+    "gdpr_compliant": true
+  }
+}

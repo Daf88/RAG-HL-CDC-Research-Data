@@ -1,0 +1,50 @@
+[
+  {
+    "rule_id": "R_HC_001",
+    "domain": "healthcare",
+    "source_intervention": "HC_DM_001",
+    "condition": "age > 75 AND (frailty_status == 'high' OR comorbidity == 'heart_failure')",
+    "action": "adjust_hba1c_target <= 8.0 AND flag_iatrogenic_risk",
+    "validation_count": 8,
+    "status": "automated",
+    "created_timestamp": "2025-06-12T15:10:00Z",
+    "prompt_version_applied": "v3_optimized",
+    "regulatory_reference": "HAS_DT2_2024_Annex3"
+  },
+  {
+    "rule_id": "R_FIN_002",
+    "domain": "finance",
+    "source_intervention": "FIN_OSMP_002",
+    "condition": "external_solicitation_detected == true AND amount > P95 AND beneficiary_status == 'new'",
+    "action": "block_transaction AND trigger_independent_channel_callback",
+    "validation_count": 5,
+    "status": "automated",
+    "created_timestamp": "2025-07-22T17:30:00Z",
+    "prompt_version_applied": "v3_optimized",
+    "regulatory_reference": "OSMP_2024_Sec1.6_R12"
+  },
+  {
+    "rule_id": "R_REC_003",
+    "domain": "recruitment",
+    "source_intervention": "REC_CNIL_003",
+    "condition": "automated_score < threshold AND demographic_indicator_detected == true",
+    "action": "trigger_human_review AND disable_name_based_weighting",
+    "validation_count": 8,
+    "status": "automated",
+    "created_timestamp": "2026-04-15T11:45:00Z",
+    "prompt_version_applied": "v3_optimized",
+    "regulatory_reference": "CODE_TRAVAIL_L1142-1"
+  },
+  {
+    "rule_id": "R_EDU_004",
+    "domain": "education",
+    "source_intervention": "EDU_MENFP_004",
+    "condition": "score_field IS EMPTY AND justification_field IS NULL",
+    "action": "block_central_transmission AND trigger_return_to_originating_academy",
+    "validation_count": 6,
+    "status": "automated",
+    "created_timestamp": "2025-08-15T10:20:00Z",
+    "prompt_version_applied": "v3_optimized",
+    "regulatory_reference": "MENFP_CIRC_087X25_Art4.4"
+  }
+]

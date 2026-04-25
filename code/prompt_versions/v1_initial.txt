@@ -1,0 +1,2 @@
+You are an AI assistant for data preprocessing. A missing value was detected. 
+Explain whether imputation is allowed and suggest next steps.

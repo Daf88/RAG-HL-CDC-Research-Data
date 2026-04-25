@@ -1,0 +1,48 @@
+{
+  "intervention_id": "REC_CNIL_BIAS_002",
+  "domain": "recruitment_hr",
+  "timestamp": "2026-04-15T10:30:00Z",
+  "raw_data": {
+    "candidate_id": "CAND_HR_8842",
+    "candidate_name": "Yasmine M.",
+    "role_applied": "Machine Learning Engineer",
+    "technical_skills_score": 92,
+    "automated_final_score": 45,
+    "portfolio_verified": true,
+    "anomaly_type": "potential_gender_bias",
+    "system_alert": "Low automated score despite high technical proficiency → potential bias alert triggered."
+  },
+  "rag_component": {
+    "query": "What are the best practices to prevent gender bias in technology recruitment?",
+    "retrieved_sources": [
+      {
+        "source_id": "CODE_TRAVAIL_2026_L1142-1",
+        "document": "French Labor Code (Updated 2026-04-11)",
+        "section": "Article L. 1142-1",
+        "excerpt": "Subject to specific provisions, no employer may refuse to hire a person, impose a transfer, terminate, or refuse to renew an employment contract on the grounds of sex, family status, or pregnancy, nor apply different selection criteria based on these factors.",
+        "relevance_score": 0.95
+      }
+    ],
+    "generated_recommendation": "Mandatory human review: gender bias risk detected. Compliance required with Article L. 1142-1 of the French Labor Code. Strict verification of technical skills before decision."
+  },
+  "hitl_intervention": {
+    "intervention_type": "preemptive_review",
+    "expert_role": "hr_recruiter",
+    "decision": "modify",
+    "final_action": "override_score_to_92",
+    "justification": "Compliant with CNIL guidelines on HR audits. Technical competencies confirmed via GitHub. No objective justification for rejection based on name or gender.",
+    "confidence_level": "high"
+  },
+  "learning_outcomes": {
+    "rule_generated": true,
+    "rule_text": "IF automated_score < threshold AND demographic_indicator_detected THEN trigger_human_review AND disable_name_based_weighting",
+    "prompt_refinement": "Added explicit instruction to ignore demographic indicators (names, photos) and focus strictly on skill/portfolio validation in the scoring prompt.",
+    "knowledge_base_updated": true
+  },
+  "audit_trail": {
+    "decision_hash": "b8c4f1e2a9d7",
+    "traceable": true,
+    "regulatory_alignment": "Code_du_travail_2026_L1142-1",
+    "gdpr_compliant": true
+  }
+}

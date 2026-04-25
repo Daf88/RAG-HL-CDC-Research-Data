@@ -1,0 +1,57 @@
+{
+  "intervention_id": "FIN_OSMP_MANIP_022",
+  "domain": "finance_fraud_prevention",
+  "timestamp": "2025-07-22T16:45:00Z",
+  "raw_data": {
+    "transaction_amount": 8500.00,
+    "beneficiary": "NEW_BEN_9472",
+    "channel": "online_banking",
+    "external_solicitation_detected": true,
+    "solicitation_type": "phone_call_spoofed_bank_number",
+    "customer_history": {
+      "avg_monthly_transfer": 1200.00,
+      "previous_beneficiaries_count": 5,
+      "last_login": "2025-07-22T16:30:00Z"
+    }
+  },
+  "rag_component": {
+    "query": "What procedure should be applied for a transfer initiated after a suspicious phone call?",
+    "retrieved_sources": [
+      {
+        "source_id": "OSMP_2024_Sec1.6",
+        "document": "Observatoire de la sécurité des moyens de paiement – Annual Report 2024",
+        "section": "Section 1.6: State of manipulation fraud (p. 22)",
+        "excerpt": "Manipulation fraud covers cases where the client is manipulated by the fraudster during a phone conversation, often by impersonating the payment service provider (fake bank advisor or fake anti-fraud service).",
+        "relevance_score": 0.96
+      },
+      {
+        "source_id": "OSMP_2024_R12",
+        "document": "Observatoire de la sécurité des moyens de paiement – Annual Report 2024",
+        "section": "Recommendation R.12 (p. 42)",
+        "excerpt": "Enhanced validation for atypical outgoing transfers via an independent channel.",
+        "relevance_score": 0.91
+      }
+    ],
+    "generated_recommendation": "Temporarily block the transfer. Contact the client via an independent channel (outbound call from the bank's official number) for explicit confirmation. Apply the OSMP Annex B risk assessment grid."
+  },
+  "hitl_intervention": {
+    "intervention_type": "preemptive_review",
+    "expert_role": "fraud_analyst",
+    "decision": "accept",
+    "final_action": "block_transaction_customer_callback_official_channel",
+    "justification": "Compliant with OSMP 2024 Section 1.6 and R.12: independent channel validation required. Client confirmed as a victim of fake bank advisor fraud.",
+    "confidence_level": "high"
+  },
+  "learning_outcomes": {
+    "rule_generated": true,
+    "rule_text": "IF external_solicitation_detected AND amount > P95 AND beneficiary_new THEN block + independent_channel_confirmation",
+    "prompt_refinement": "Added explicit reference to 'fake bank advisor' and 'independent channel' in query template",
+    "knowledge_base_updated": true
+  },
+  "audit_trail": {
+    "decision_hash": "f9e8d7c6b5a4",
+    "traceable": true,
+    "regulatory_alignment": "OSMP_2024_Sec1.6_R12",
+    "gdpr_compliant": true
+  }
+}
