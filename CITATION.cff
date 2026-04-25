@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this reference implementation, please cite the associated paper."
+title: "RAG-HL-CDC Reference Implementation"
+authors:
+  - family-names: "[YourLastName]"
+    given-names: "[YourFirstName]"
+    orcid: "https://orcid.org/[YOUR-ORCID]"
+version: 1.0.0
+doi: "10.xxxx/zenodo.xxxxxx"  # ← À remplir après création du release Zenodo
+date-released: "2026-04-24"
+url: "https://github.com/[your-username]/RAG-HL-CDC-Research-Data"
+repository-code: "https://github.com/[your-username]/RAG-HL-CDC-Research-Data"
+license: "MIT"
+abstract: >
+  Minimal reproducible reference for RAG-HL/CDC: Retrieval-Augmented Generation 
+  with Human-in-the-Loop for Contextual Data Correction. Contains routing logic, 
+  prompt evolution history, synthetic case studies (healthcare, finance, recruitment, 
+  education), anonymized HITL intervention logs, generated business rules, and 
+  quantitative evaluation metrics.
+ 
