@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this reference implementation, please cite the associated paper."
 authors:
-  - family-names: "[YourLastName]"
-    given-names: "[YourFirstName]"
-    orcid: "https://orcid.org/[YOUR-ORCID]"
+  - family-names: "Dafali"
+    given-names: "Sidi Mohamed"
+    orcid: "https://orcid.org/009-0009-6918-1827"
 title: "RAG-HL-CDC Reference Implementation"
 version: 1.0.1
 identifiers:
@@ -11,7 +11,7 @@ identifiers:
     value: 10.xxxx/zenodo.xxxxxx
 date-released: "2026-04-24"
 url: "https://github.com/[your-username]/RAG-HL-CDC-Research-Data"
-repository-code: "https://github.com/[your-username]/RAG-HL-CDC-Research-Data"
+repository-code: "https://github.com/Daf88/RAG-HL-CDC-Research-Data"
 license: "MIT"
 abstract: >
   Minimal reproducible reference for RAG-HL/CDC: Retrieval-Augmented Generation 
