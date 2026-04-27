@@ -5,7 +5,7 @@ authors:
   - family-names: "[YourLastName]"
     given-names: "[YourFirstName]"
     orcid: "https://orcid.org/[YOUR-ORCID]"
-version: 1.0.!
+version: 1.0.1
 doi: "10.xxxx/zenodo.xxxxxx"  # ← À remplir après création du release Zenodo
 date-released: "2026-04-24"
 url: "https://github.com/[your-username]/RAG-HL-CDC-Research-Data"
