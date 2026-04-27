@@ -5,9 +5,9 @@ title: "RAG-HL-CDC Reference Implementation"
 version: "1.0.1"
 
 authors:
-  - family-names: "Dafali"
-    given-names: "Sidi Mohamed"
-
+  - family-names: Dafali
+    given-names: Sidi Mohamed
+    orcid: https://orcid.org/009-0009-6918-1827
 date-released: 2026-04-24
 
 repository-code: "https://github.com/Daf88/RAG-HL-CDC-Research-Data"
