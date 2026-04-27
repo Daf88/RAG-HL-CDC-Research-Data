@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this reference implementation, please cite the associated paper."
+
+title: "RAG-HL-CDC Reference Implementation"
+version: "1.0.1"
+
+authors:
+  - family-names: "Dafali"
+    given-names: "Sidi Mohamed"
+
+date-released: 2026-04-24
+
+repository-code: "https://github.com/Daf88/RAG-HL-CDC-Research-Data"
+url: "https://github.com/Daf88/RAG-HL-CDC-Research-Data"
+
+license: "MIT"
+
+abstract: >
+  Minimal reproducible reference for RAG-HL/CDC: Retrieval-Augmented Generation 
+  with Human-in-the-Loop for Contextual Data Correction. Contains routing logic, 
+  prompt evolution history, synthetic case studies (healthcare, finance, recruitment, 
+  education), anonymized HITL intervention logs, generated business rules, and 
+  quantitative evaluation metrics.
